@@ -2,75 +2,72 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Segoe UI',sans-serif;
 }
 
 body{
     background:#0f172a;
+    color:white;
 }
 
 .App{
-    min-height:100vh;
-    padding:40px;
+    max-width:750px;
+    margin:auto;
+    padding:35px 20px;
 }
 
-/* ---------- Header ---------- */
+/* Header */
 
 .title{
     text-align:center;
-    color:#ffffff;
-    font-size:42px;
+    font-size:38px;
     font-weight:700;
-    margin-bottom:8px;
+    color:#ffffff;
 }
 
 .subtitle{
     text-align:center;
     color:#94a3b8;
-    font-size:18px;
-    margin-bottom:40px;
+    font-size:16px;
+    margin:10px 0 35px;
 }
 
-/* ---------- Grid ---------- */
+/* Cards */
 
 .container{
-    max-width:1250px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:30px;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
 }
-
-/* ---------- Card ---------- */
 
 .card{
     background:#1e293b;
     border:1px solid #334155;
-    border-radius:18px;
-    padding:30px;
+    border-radius:16px;
+    padding:22px;
     transition:.3s;
-    box-shadow:0 10px 25px rgba(0,0,0,.35);
-    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 20px 35px rgba(0,0,0,.45);
+    transform:translateY(-5px);
+    border-color:#3b82f6;
+    box-shadow:0 12px 28px rgba(59,130,246,.25);
 }
 
-/* ---------- Icons ---------- */
+/* Icons */
 
 .icon{
-    width:75px;
-    height:75px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    width:60px;
+    height:60px;
     margin:auto;
-    margin-bottom:18px;
-    font-size:32px;
+    border-radius:14px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
     color:white;
+    margin-bottom:15px;
 }
 
 .green{
@@ -78,7 +75,7 @@ body{
 }
 
 .yellow{
-    background:#eab308;
+    background:#f59e0b;
 }
 
 .blue{
@@ -89,172 +86,175 @@ body{
     background:#9333ea;
 }
 
-/* ---------- Heading ---------- */
+/* Text */
 
 .card h2{
-    color:white;
-    margin-bottom:15px;
-    font-size:28px;
+    text-align:center;
+    font-size:24px;
+    margin-bottom:8px;
 }
 
 .description{
-    color:#cbd5e1;
-    margin-bottom:22px;
-    line-height:1.6;
-    font-size:15px;
+    text-align:center;
+    color:#94a3b8;
+    font-size:14px;
+    margin-bottom:18px;
+    line-height:1.5;
 }
 
-/* ---------- Input ---------- */
+/* Input */
 
 input{
     width:100%;
-    padding:14px;
-    border-radius:12px;
-    border:1px solid #475569;
-    background:#0f172a;
+    height:45px;
+    padding:0 15px;
+    border:none;
+    border-radius:10px;
+    background:#111827;
     color:white;
-    font-size:16px;
-    margin-bottom:18px;
+    border:1px solid #374151;
+    margin-bottom:15px;
+    font-size:15px;
 }
 
 input::placeholder{
-    color:#94a3b8;
+    color:#6b7280;
 }
 
 input:focus{
     outline:none;
-    border:1px solid #3b82f6;
+    border-color:#3b82f6;
 }
 
-/* ---------- Button ---------- */
+/* Buttons */
 
 button{
     width:100%;
-    padding:14px;
+    height:44px;
     margin-top:10px;
     border:none;
-    border-radius:12px;
+    border-radius:10px;
     background:#2563eb;
     color:white;
-    cursor:pointer;
-    font-size:16px;
+    font-size:15px;
     font-weight:600;
+    cursor:pointer;
     transition:.3s;
 }
 
 button:hover{
     background:#1d4ed8;
-    transform:scale(1.02);
 }
 
-/* ---------- Result ---------- */
+/* Result Box */
 
 .result{
-    margin-top:20px;
-    background:#0f172a;
+    margin-top:18px;
+    padding:14px;
+    background:#111827;
     border:1px solid #334155;
-    border-radius:12px;
-    padding:18px;
+    border-radius:10px;
+    text-align:center;
+    font-size:16px;
 }
 
-.result h4{
+.result strong{
     color:#38bdf8;
-    margin-bottom:10px;
 }
 
-.result p{
-    color:white;
-    font-size:18px;
-}
-
-/* ---------- useEffect ---------- */
-
-.effectBox{
-    background:#0f172a;
-    border:1px solid #334155;
-    border-radius:12px;
-    padding:18px;
-    color:#cbd5e1;
-    line-height:1.8;
-    text-align:left;
-    margin-bottom:18px;
-}
+/* Status */
 
 .status{
-    background:#16a34a;
-    color:white;
+    margin-top:18px;
+    background:#15803d;
     padding:12px;
     border-radius:10px;
-    font-weight:bold;
+    text-align:center;
+    font-weight:600;
 }
 
-/* ---------- useMemo ---------- */
+/* Number Circle */
 
 .number{
-    width:100px;
-    height:100px;
-    margin:20px auto;
+    width:70px;
+    height:70px;
+    margin:18px auto;
     border-radius:50%;
     background:#2563eb;
     display:flex;
     justify-content:center;
     align-items:center;
-    color:white;
-    font-size:38px;
+    font-size:26px;
     font-weight:bold;
 }
 
-/* ---------- useCallback ---------- */
+/* Callback */
 
 .callbackText{
-    margin-top:20px;
-    background:#0f172a;
+    margin-top:18px;
+    padding:14px;
+    border-radius:10px;
+    background:#111827;
     border:1px solid #334155;
-    border-radius:12px;
-    padding:18px;
     color:#cbd5e1;
-    line-height:1.8;
-}
-
-/* ---------- Footer ---------- */
-
-.footer{
     text-align:center;
-    color:#94a3b8;
-    margin-top:45px;
     font-size:15px;
 }
 
-/* ---------- Responsive ---------- */
+/* Footer */
 
-@media(max-width:900px){
+.footer{
+    margin-top:35px;
+    text-align:center;
+    color:#64748b;
+    font-size:14px;
+}
 
-.container{
-    grid-template-columns:1fr;
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#475569;
+    border-radius:20px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.App{
+    padding:20px 15px;
 }
 
 .title{
-    font-size:34px;
-}
-
-.subtitle{
-    font-size:16px;
-}
-
-.card{
-    padding:25px;
-}
-
-.number{
-    width:80px;
-    height:80px;
     font-size:30px;
 }
 
+.subtitle{
+    font-size:15px;
+}
+
+.card{
+    padding:18px;
+}
+
 .icon{
-    width:65px;
-    height:65px;
-    font-size:28px;
+    width:55px;
+    height:55px;
+    font-size:24px;
+}
+
+.number{
+    width:60px;
+    height:60px;
+    font-size:22px;
+}
+
+button{
+    height:42px;
 }
 
 }

@@ -1,6 +1,5 @@
 import "./App.css";
 import { useState, useEffect, useMemo, useCallback } from "react";
-
 import {
   FaUserEdit,
   FaBolt,
@@ -9,15 +8,13 @@ import {
 } from "react-icons/fa";
 
 function App() {
-  // ================= useState =================
+  // useState
   const [name, setName] = useState("");
   const [submit, setSubmit] = useState(false);
 
-  // ================= useEffect (Page Load) =================
+  // useEffect - Page Load
   useEffect(() => {
-    alert(
-      "👋 Welcome to the React Hooks Dashboard!\n\nExplore useState, useEffect, useMemo and useCallback."
-    );
+    alert("👋 Welcome to the React Hooks Dashboard!");
 
     console.log("====================================");
     console.log("React Hooks Dashboard Loaded");
@@ -25,7 +22,7 @@ function App() {
     console.log("====================================");
   }, []);
 
-  // ================= useEffect (Submit) =================
+  // useEffect - Submit
   useEffect(() => {
     if (submit && name !== "") {
       alert(`🎉 Hello ${name}!\nHappy Coding with React Hooks 🚀`);
@@ -39,7 +36,7 @@ function App() {
     }
   }, [submit, name]);
 
-  // ================= useMemo =================
+  // useMemo
   const [number, setNumber] = useState(0);
 
   const result = useMemo(() => {
@@ -47,7 +44,7 @@ function App() {
     return number * 5;
   }, [number]);
 
-  // ================= useCallback =================
+  // useCallback
   const showWelcome = useCallback(() => {
     alert("😄 Welcome Buddy!");
     console.log("Welcome Button Clicked");
@@ -60,8 +57,7 @@ function App() {
 
   return (
     <div className="App">
-
-      <h1 className="title">React Hooks Dashboard</h1>
+      <h1 className="title">⚛ React Hooks Dashboard</h1>
 
       <p className="subtitle">
         Interactive Demonstration of React Hooks
@@ -70,9 +66,7 @@ function App() {
       <div className="container">
 
         {/* useState */}
-
         <div className="card">
-
           <div className="icon green">
             <FaUserEdit />
           </div>
@@ -80,7 +74,7 @@ function App() {
           <h2>useState</h2>
 
           <p className="description">
-            Manages and updates component state.
+            Stores and updates component state.
           </p>
 
           <input
@@ -95,16 +89,12 @@ function App() {
           </button>
 
           <div className="result">
-            <h4>Current State</h4>
-            <p>{name || "Student"}</p>
+            Welcome <strong>{name || "Student"}</strong>
           </div>
-
         </div>
 
         {/* useEffect */}
-
         <div className="card">
-
           <div className="icon yellow">
             <FaBolt />
           </div>
@@ -112,33 +102,16 @@ function App() {
           <h2>useEffect</h2>
 
           <p className="description">
-            Executes side effects after rendering.
+            Shows an alert when the page loads and after submitting.
           </p>
 
-          <div className="effectBox">
-
-            ✔ Automatically runs when the page loads.
-
-            <br /><br />
-
-            ✔ Displays an alert after submitting.
-
-            <br /><br />
-
-            ✔ Logs messages to the console.
-
-          </div>
-
           <div className="status">
-            Effect Ready ✔
+            ✔ Alert Ready
           </div>
-
         </div>
 
         {/* useMemo */}
-
         <div className="card">
-
           <div className="icon blue">
             <FaCalculator />
           </div>
@@ -146,30 +119,24 @@ function App() {
           <h2>useMemo</h2>
 
           <p className="description">
-            Caches calculated values for better performance.
+            Caches calculated values.
           </p>
 
           <div className="number">
             {number}
           </div>
 
-          <button
-            onClick={() => setNumber(number + 1)}
-          >
+          <button onClick={() => setNumber(number + 1)}>
             Increment
           </button>
 
           <div className="result">
-            <h4>Computed Value</h4>
-            <p>{result}</p>
+            Result : <strong>{result}</strong>
           </div>
-
         </div>
 
         {/* useCallback */}
-
         <div className="card">
-
           <div className="icon purple">
             <FaCodeBranch />
           </div>
@@ -177,20 +144,20 @@ function App() {
           <h2>useCallback</h2>
 
           <p className="description">
-            Memoizes callback functions to improve rendering performance.
+            Memoizes callback functions.
           </p>
 
           <button onClick={showWelcome}>
-            Welcome Button
+            Welcome
           </button>
 
           <button onClick={showMessage}>
-            Motivation Button
+            Greeting
           </button>
-<div className="callbackText">
-  Click any button to execute the callback function.
-</div>
 
+          <div className="callbackText">
+            Click any button to execute the callback function.
+          </div>
         </div>
 
       </div>
