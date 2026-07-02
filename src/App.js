@@ -1,54 +1,87 @@
 import "./App.css";
 import { useState, useEffect, useMemo, useCallback } from "react";
 
+import {
+  FaUserEdit,
+  FaBolt,
+  FaCalculator,
+  FaCodeBranch,
+} from "react-icons/fa";
+
 function App() {
-  // useState
+  // ================= useState =================
   const [name, setName] = useState("");
   const [submit, setSubmit] = useState(false);
 
-  // useEffect
- useEffect(() => {
-  if (submit && name !== "") {
+  // ================= useEffect (Page Load) =================
+  useEffect(() => {
+    alert(
+      "👋 Welcome to the React Hooks Dashboard!\n\nExplore useState, useEffect, useMemo and useCallback."
+    );
 
-    alert("Welcome " + name);
+    console.log("====================================");
+    console.log("React Hooks Dashboard Loaded");
+    console.log("useEffect executed on component mount.");
+    console.log("====================================");
+  }, []);
 
-    console.log("Welcome " + name);
+  // ================= useEffect (Submit) =================
+  useEffect(() => {
+    if (submit && name !== "") {
+      alert(`🎉 Hello ${name}!\nHappy Coding with React Hooks 🚀`);
 
-    setSubmit(false);
-  }
-}, [submit, name]);
+      console.log("====================================");
+      console.log("User Submitted :", name);
+      console.log("useEffect executed after state update.");
+      console.log("====================================");
 
-  // useMemo
+      setSubmit(false);
+    }
+  }, [submit, name]);
+
+  // ================= useMemo =================
   const [number, setNumber] = useState(0);
 
   const result = useMemo(() => {
+    console.log("useMemo recalculated");
     return number * 5;
   }, [number]);
 
-  // useCallback
+  // ================= useCallback =================
   const showWelcome = useCallback(() => {
-    alert("Welcome Dude!");
+    alert("😄 Welcome Buddy!");
+    console.log("Welcome Button Clicked");
   }, []);
 
   const showMessage = useCallback(() => {
-    alert("Magic activated! Welcome to the app!");
+    alert("🚀 Keep Learning React!");
+    console.log("Message Button Clicked");
   }, []);
 
   return (
     <div className="App">
 
-      <h1 className="title">⚛ React Hooks Dashboard</h1>
+      <h1 className="title">React Hooks Dashboard</h1>
+
       <p className="subtitle">
-        useState, useEffect, useMemo and useCallback
+        Interactive Demonstration of React Hooks
       </p>
 
       <div className="container">
 
         {/* useState */}
+
         <div className="card">
-          <div className="icon">🟢</div>
+
+          <div className="icon green">
+            <FaUserEdit />
+          </div>
 
           <h2>useState</h2>
+
+          <p className="description">
+            Manages and updates component state.
+          </p>
 
           <input
             type="text"
@@ -62,63 +95,109 @@ function App() {
           </button>
 
           <div className="result">
-            Welcome <strong>{name || "Student"}</strong>
+            <h4>Current State</h4>
+            <p>{name || "Student"}</p>
           </div>
+
         </div>
 
         {/* useEffect */}
+
         <div className="card">
-          <div className="icon">🟡</div>
+
+          <div className="icon yellow">
+            <FaBolt />
+          </div>
 
           <h2>useEffect</h2>
 
+          <p className="description">
+            Executes side effects after rendering.
+          </p>
+
           <div className="effectBox">
-            useEffect displays the <strong>Welcome Alert</strong> using
-            the value stored in <strong>useState</strong>.
+
+            ✔ Automatically runs when the page loads.
+
+            <br /><br />
+
+            ✔ Displays an alert after submitting.
+
+            <br /><br />
+
+            ✔ Logs messages to the console.
+
           </div>
 
           <div className="status">
-            ✔ Alert : Welcome {name || "Student"}
+            Effect Ready ✔
           </div>
+
         </div>
 
         {/* useMemo */}
+
         <div className="card">
-          <div className="icon">🔵</div>
+
+          <div className="icon blue">
+            <FaCalculator />
+          </div>
 
           <h2>useMemo</h2>
 
-          <div className="number">{number}</div>
+          <p className="description">
+            Caches calculated values for better performance.
+          </p>
 
-          <button onClick={() => setNumber(number + 1)}>
+          <div className="number">
+            {number}
+          </div>
+
+          <button
+            onClick={() => setNumber(number + 1)}
+          >
             Increment
           </button>
 
           <div className="result">
-            Multiply by 5 : <strong>{result}</strong>
+            <h4>Computed Value</h4>
+            <p>{result}</p>
           </div>
+
         </div>
 
         {/* useCallback */}
+
         <div className="card">
-          <div className="icon">🟣</div>
+
+          <div className="icon purple">
+            <FaCodeBranch />
+          </div>
 
           <h2>useCallback</h2>
+
+          <p className="description">
+            Memoizes callback functions to improve rendering performance.
+          </p>
 
           <button onClick={showWelcome}>
             Welcome Button
           </button>
 
           <button onClick={showMessage}>
-            Message Button
+            Motivation Button
           </button>
+<div className="callbackText">
+  Click any button to execute the callback function.
+</div>
 
-          <div className="callbackText">
-            Click any button to execute the memoized callback function.
-          </div>
         </div>
 
       </div>
+
+      <footer className="footer">
+        Built with React.js | React Hooks Demonstration
+      </footer>
 
     </div>
   );
